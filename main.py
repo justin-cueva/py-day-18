@@ -1,6 +1,20 @@
 from turtle import Turtle, Screen
 import random
 
+tim = Turtle()
+screen = Screen()
+
+screen.colormode(255)
+tim.shape('turtle')
+tim.color('blue')
+# tim.colormode(255)
+
+tim.penup()
+tim.left(90)
+tim.forward(50)
+tim.right(90)
+tim.pendown()
+
 
 def get_random_numbers():
     r = 0
@@ -16,25 +30,23 @@ def get_random_numbers():
     return r, g, b
 
 
-tim = Turtle()
-screen = Screen()
+def random_step(turtle):
+    turtle.pensize(5)
+    turtle.pencolor(get_random_numbers())
+    random_angle = (random.randint(1, 4)) * 90
+    turtle.right(random_angle)
+    turtle.forward(10)
 
-screen.colormode(255)
-tim.shape('turtle')
-tim.color('blue')
-# tim.colormode(255)
 
-tim.penup()
-tim.left(90)
-tim.forward(250)
-tim.right(90)
-tim.pendown()
+tim.speed('fastest')
+for _ in range(200):
+    random_step(tim)
 
-for x in range(3, 7):
-    tim.pencolor(get_random_numbers())
-    angle = 360 / x
-    for _ in range(x):
-        tim.right(angle)
-        tim.forward(100)
+# for x in range(3, 7):
+#     tim.pencolor(get_random_numbers())
+#     angle = 360 / x
+#     for _ in range(x):
+#         tim.right(angle)
+#         tim.forward(100)
 
 screen.exitonclick()
