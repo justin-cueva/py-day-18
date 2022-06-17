@@ -39,8 +39,8 @@ def random_step(turtle):
 
 
 tim.speed('fastest')
-for _ in range(200):
-    random_step(tim)
+# for _ in range(200):
+#     random_step(tim)
 
 # for x in range(3, 7):
 #     tim.pencolor(get_random_numbers())
@@ -48,5 +48,16 @@ for _ in range(200):
 #     for _ in range(x):
 #         tim.right(angle)
 #         tim.forward(100)
+
+
+def draw_spirograph(number_of_circles):
+    tim.pensize(5)
+    for _ in range(number_of_circles):
+        tim.pencolor(get_random_numbers())
+        tim.circle(100, 360)
+        tim.right(360 / number_of_circles)
+
+
+draw_spirograph(25)
 
 screen.exitonclick()
